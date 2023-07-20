@@ -4,7 +4,7 @@ import java.util.*;
 
 public class CompareDriver {
 
-    private double calculateScore(Driver driver) {
+    public double calculateScore(Driver driver) {
          // driver.getPoints() + driver.getRacewins() + driver.getFastestlaps() + driver.getPolepositions() +
         // driver.getTopthrees();
 

@@ -11,7 +11,8 @@ public class Driver {
     private int fastestlaps;
     private double finalscore;
 
-    public Driver(String name, String team, String country) {
+    public Driver(String name, String team, String country, int points, int racewins, int topthrees, int polepositions,
+                  int fastestlaps) {
         this.name = name;
         this.team = team;
         this.country = country;
@@ -22,6 +23,7 @@ public class Driver {
         this.fastestlaps = 0;
         this.finalscore = 0;
     }
+
 // getters
 
     public String getName() {
@@ -87,11 +89,7 @@ public class Driver {
     }
 
 
-
-
-
-
-
-
-
 }
+
+
+
