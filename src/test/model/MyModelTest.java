@@ -1,5 +1,5 @@
 package model;
 
-class MyModelTest {
+class DriverTest {
     // delete or rename this class!
 }
