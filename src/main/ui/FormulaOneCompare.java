@@ -4,7 +4,6 @@ import model.CompareDriver;
 import model.Driver;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,17 +28,6 @@ public class FormulaOneCompare {
             Driver driver = new Driver(name, team, points);
             drivers.add(driver);
         }
-
-        compareDriver.compareDrivers(drivers);
-
-        Driver winner = drivers.stream().max(Comparator.comparingDouble(Driver::getFinalscore)).orElse(null);
-
-        if (winner != null) {
-            System.out.println("Winning driver:  ");
-            System.out.println(winner.getName() + "from" + winner.getTeam() + "with a score of"
-                     + winner.getFinalscore() + "!");
-        } else {
-            System.out.println(" ");
-        }
     }
-}
+
+
