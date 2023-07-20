@@ -24,26 +24,12 @@ public class FormulaOneCompare {
             }
             System.out.print("Team: ");
             String team = scan.nextLine();
-            System.out.print("Country: ");
-            String country = scan.nextLine();
             System.out.print("Career points: ");
-            int points = Integer.parseInt(scan.nextLine());
-            System.out.print("Career wins: ");
-            int racewins = Integer.parseInt(scan.nextLine());
-            System.out.print("Podium finishes: ");
-            int topthrees = Integer.parseInt(scan.nextLine());
-            System.out.print("Pole positions: ");
-            int polepositions = Integer.parseInt(scan.nextLine());
-            System.out.print("Fastest laps: ");
-            int fastestlaps = Integer.parseInt(scan.nextLine());
-            Driver driver = new Driver(name, team, country, points, racewins, topthrees, polepositions, fastestlaps);
+            String points = scan.nextLine();
+            Driver driver = new Driver(name, team, points);
             drivers.add(driver);
         }
-    }
 
-    public void runafter() {
-        private CompareDriver compareDriver;
-        private List<Driver> drivers
         compareDriver.compareDrivers(drivers);
 
         Driver winner = drivers.stream().max(Comparator.comparingDouble(Driver::getFinalscore)).orElse(null);
