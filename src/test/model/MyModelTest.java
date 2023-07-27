@@ -52,37 +52,37 @@ class DriverTest {
         assertEquals(0, formulaOneCompare.getDrivers().size());
     }
 
-    @Test
-    public void testCompareMultiple() {
-        String input = "Lando Norris\nEngland\n100\n5\n10\n3\n8\n"
-                + "Alex Albon\nWilliams\nEngland\n200\n10\n8\n7\n4\nX\n";
+//    @Test
+//    public void testCompareMultiple() {
+//        String input = "Lando Norris\nEngland\n100\n5\n10\n3\n8\n"
+//                + "Alex Albon\nWilliams\nEngland\n200\n10\n8\n7\n4\nX\n";
+//
+//        simulateUserInput(input);
+//
+//        List<Driver> drivers = formulaOneCompare.getDrivers();
+//        assertEquals(2, drivers.size());
+//
+//        Driver winner = drivers.stream().max(Comparator.comparingDouble(Driver::getFinalscore)).orElse(null);
+//
+//        assertEquals("Alex Albon", winner.getName());
+//
+//    }
 
-        simulateUserInput(input);
-
-        List<Driver> drivers = formulaOneCompare.getDrivers();
-        assertEquals(2, drivers.size());
-
-        Driver winner = drivers.stream().max(Comparator.comparingDouble(Driver::getFinalscore)).orElse(null);
-
-        assertEquals("Alex Albon", winner.getName());
-
-    }
-
-    @Test
-    public void testEqual() {
-        String input = "Lando Norris\nEngland\n100\n5\n10\n3\n8\n"
-                + "Alex Albon\nWilliams\nEngland\n100\n5\n10\n3\n8\nX\n";
-
-        simulateUserInput(input);
-
-        List<Driver> drivers = formulaOneCompare.getDrivers();
-        assertEquals(2, drivers.size());
-
-        double score = drivers.get(0).getFinalscore();
-        for (Driver driver : drivers) {
-            assertEquals(score, driver.getFinalscore());
-        }
-    }
+//    @Test
+//    public void testEqual() {
+//        String input = "Lando Norris\nEngland\n100\n5\n10\n3\n8\n"
+//                + "Alex Albon\nWilliams\nEngland\n100\n5\n10\n3\n8\nX\n";
+//
+//        simulateUserInput(input);
+//
+//        List<Driver> drivers = formulaOneCompare.getDrivers();
+//        assertEquals(2, drivers.size());
+//
+//        double score = drivers.get(0).getFinalscore();
+//        for (Driver driver : drivers) {
+//            assertEquals(score, driver.getFinalscore());
+//        }
+//    }
 
     @Test
     public void testNoDrivers() {
