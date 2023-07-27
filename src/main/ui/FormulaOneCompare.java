@@ -2,13 +2,42 @@ package ui;
 
 import model.CompareDriver;
 import model.Driver;
+import persistence.LoadsData;
+import persistence.SavesData;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class FormulaOneCompare {
+    private final String savePath = "./data/drivers.json";
+    private final String loadPath = ".data/drivers.json";
+    private List<Driver> drivers;
+
+    public FormulaOneCompare() {
+        drivers = new ArrayList<>();
+    }
+
+    public FormulaOneCompare(List<Driver> drivers) {
+        this.drivers = drivers;
+    }
+
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
 
     @SuppressWarnings("methodlength")
     public void run(Scanner scan) {
+        LoadsData loadsData = new LoadsData(loadPath);
+        try {
+            drivers = loadsData.loadsDriverData();
+        } catch (FileNotFoundException e) {
+            System.out.println("No previous data");
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
         CompareDriver compareDriver = new CompareDriver();
 
         List<Driver> drivers = new ArrayList<>();
@@ -63,22 +92,15 @@ public class FormulaOneCompare {
         System.out.println(winner.getName() + " " + "from" + " " + winner.getTeam() + " " + "with a score of"
                 + " " + winner.getFinalscore() + "!");
 
+        SavesData savesData = new SavesData(savePath);
+        try {
+            savesData.savesDriverData(drivers);
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
         System.out.println("Thank you for playing!");
     }
 
-    private List<Driver> drivers;
-
-    public FormulaOneCompare() {
-        drivers = new ArrayList<>();
-    }
-
-    public FormulaOneCompare(List<Driver> drivers) {
-        this.drivers = drivers;
-    }
-
-
-    public List<Driver> getDrivers() {
-        return drivers;
-    }
 
 }
