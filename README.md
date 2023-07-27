@@ -48,5 +48,9 @@ friend's and see who wins!
 the years to check how I can dress up as the best ever Ferrari driver!
 - As a user who is interested in writing up an analysis about the relationship between fastest lap times and number of 
 top 3 finishes, I can use this application to effectively compare specific metrics about the drivers.
+- As a user who uses the comparison tool quite often, I want to be able to load data that I had previously saved of the 
+drivers, so I can continue comparing them without losing the data.
+- As a user, I want to be able to save a list of Formula One drivers of this current season, so I can compare their 
+stats with drivers in future seasons. 
 
   
