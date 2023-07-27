@@ -50,18 +50,24 @@ public class FormulaOneCompare {
             Driver driver = new Driver(name, team, country, points, racewins, topthrees, polepositions, fastestlaps);
             drivers.add(driver);
 
+            System.out.print("If you want to enter stats for another driver, hit enter! If not, enter 'X' to exit!");
+            String next = scan.nextLine();
+            if (next.equalsIgnoreCase("X")) {
+                break;
+            }
+
+
         }
 
-        compareDriver.compareDrivers(drivers);
+        List<Driver> firsttolast = compareDriver.compareDrivers(drivers);
+        Driver winner = firsttolast.get(0);
 
-        Driver winner = drivers.stream().max(Comparator.comparingDouble(Driver::getFinalscore)).orElse(null);
+        System.out.println("Winning driver:  ");
+        System.out.println(winner.getName() + " " + "from" + " " + winner.getTeam() + " " + "with a score of"
+                    + " " + winner.getFinalscore() + "!");
 
-        if (winner != null) {
-            System.out.println("Winning driver:  ");
-            System.out.println(winner.getName() + "from" + winner.getTeam() + "with a score of"
-                    + winner.getFinalscore() + "!");
-        } else {
-            System.out.println(" ");
-        }
+        System.out.println("Thank you for playing!");
     }
+
+
 }

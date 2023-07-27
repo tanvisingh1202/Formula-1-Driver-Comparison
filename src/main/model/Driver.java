@@ -16,11 +16,11 @@ public class Driver {
         this.name = name;
         this.team = team;
         this.country = country;
-        this.points = 0;
-        this.racewins = 0;
-        this.topthrees = 0;
-        this.polepositions = 0;
-        this.fastestlaps = 0;
+        this.points = points;
+        this.racewins = racewins;
+        this.topthrees = topthrees;
+        this.polepositions = polepositions;
+        this.fastestlaps = fastestlaps;
         this.finalscore = 0;
     }
 
