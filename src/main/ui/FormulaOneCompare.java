@@ -3,18 +3,15 @@ package ui;
 import model.CompareDriver;
 import model.Driver;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class FormulaOneCompare {
 
     @SuppressWarnings("methodlength")
-    public void run() {
-        Scanner scan = new Scanner(System.in);
-        List<Driver> drivers = new ArrayList<>();
+    public void run(Scanner scan) {
         CompareDriver compareDriver = new CompareDriver();
+
+        List<Driver> drivers = new ArrayList<>();
 
         System.out.println("Formula One Driver Compare");
         System.out.println("Pick a driver of your choice and enter their stats here! Or enter 'X' to exit!");
@@ -64,10 +61,24 @@ public class FormulaOneCompare {
 
         System.out.println("Winning driver:  ");
         System.out.println(winner.getName() + " " + "from" + " " + winner.getTeam() + " " + "with a score of"
-                    + " " + winner.getFinalscore() + "!");
+                + " " + winner.getFinalscore() + "!");
 
         System.out.println("Thank you for playing!");
     }
 
+    private List<Driver> drivers;
+
+    public FormulaOneCompare() {
+        drivers = new ArrayList<>();
+    }
+
+    public FormulaOneCompare(List<Driver> drivers) {
+        this.drivers = drivers;
+    }
+
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
 
 }
