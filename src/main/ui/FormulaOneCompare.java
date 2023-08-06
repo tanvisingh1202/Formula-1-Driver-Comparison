@@ -11,7 +11,7 @@ import java.util.*;
 
 public class FormulaOneCompare {
     private final String savePath = "./data/drivers.json";
-    private final String loadPath = ".data/drivers.json";
+    private final String loadPath = "./data/drivers.json";
     private List<Driver> drivers;
 
     public FormulaOneCompare() {
@@ -40,7 +40,7 @@ public class FormulaOneCompare {
 
         CompareDriver compareDriver = new CompareDriver();
 
-        List<Driver> drivers = new ArrayList<>();
+        //List<Driver> drivers = new ArrayList<>();
 
         System.out.println("Formula One Driver Compare");
         System.out.println("Pick a driver of your choice and enter their stats here! Or enter 'X' to exit!");
