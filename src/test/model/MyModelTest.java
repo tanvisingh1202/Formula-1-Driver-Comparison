@@ -98,4 +98,47 @@ class DriverTest {
         System.setIn(in);
     }
 
+    @Test
+    public void testSetPoints() {
+        Driver driver = new Driver("Yuki Tsunoda", "AlphaTauri", "Japan", 0,0,
+                0,0,0);
+        driver.setPoints(30);
+        assertEquals(30, driver.getPoints());
+    }
+
+    @Test
+    public void testSetRacewins() {
+        Driver driver = new Driver("Yuki Tsunoda", "AlphaTauri", "Japan", 0,0,
+                0,0,0);
+        driver.setRacewins(30);
+        assertEquals(30, driver.getRacewins());
+    }
+
+    @Test
+    public void testSetTopthrees() {
+        Driver driver = new Driver("Yuki Tsunoda", "AlphaTauri", "Japan", 0,0,
+                0,0,0);
+        driver.setTopthrees(30);
+        assertEquals(30, driver.getTopthrees());
+    }
+
+    @Test
+    public void testSetPole() {
+        Driver driver = new Driver("Yuki Tsunoda", "AlphaTauri", "Japan", 0,0,
+                0,0,0);
+        driver.setPolepositions(30);
+        assertEquals(30, driver.getPolepositions());
+    }
+
+    @Test
+    public void testSetFastest() {
+        Driver driver = new Driver("Yuki Tsunoda", "AlphaTauri", "Japan", 0,0,
+                0,0,0);
+        driver.setFastestlaps(30);
+        assertEquals(30, driver.getFastestlaps());
+    }
+
+
+
+
 }

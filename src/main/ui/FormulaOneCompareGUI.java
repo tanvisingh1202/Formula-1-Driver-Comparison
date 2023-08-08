@@ -30,6 +30,8 @@ public class FormulaOneCompareGUI extends JFrame implements ActionListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(800,600);
 
+        showSplashScreen();
+
         driverList = new ArrayList<>();
         LoadsData loadsData = new LoadsData("./data/drivers.json");
 
@@ -55,6 +57,13 @@ public class FormulaOneCompareGUI extends JFrame implements ActionListener {
         compareButton.addActionListener(this);
         clearButton.addActionListener(this);
 
+        addDriverButton.setBackground(Color.RED);
+        saveButton.setBackground(Color.RED);
+        loadButton.setBackground(Color.RED);
+        compareButton.setBackground(Color.RED);
+        clearButton.setBackground(Color.RED);
+
+
         buttonPanel.add(driverLabel);
         buttonPanel.add(addDriverButton);
         buttonPanel.add(saveButton);
@@ -71,9 +80,28 @@ public class FormulaOneCompareGUI extends JFrame implements ActionListener {
         splitPane.setResizeWeight(0.5);
 
         getContentPane().add(splitPane);
+        getContentPane().setBackground(Color.BLACK);
 
         setVisible(true);
 
+    }
+
+    private void showSplashScreen() {
+        JFrame splashFrame = new JFrame();
+        splashFrame.setUndecorated(true);
+        JLabel splashLabel = new JLabel(new ImageIcon("/resources/f1splash.png"));
+        splashFrame.add(splashLabel);
+        splashFrame.pack();
+        splashFrame.setLocationRelativeTo(null);
+        splashFrame.setVisible(true);
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        splashFrame.dispose();
     }
 
 
