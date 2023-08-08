@@ -13,6 +13,8 @@ public class SavesData {
 
     private final String filePath;
 
+    // requires: filePath that is valid and refers to a JSON file
+    // effects: constructs a SaveData object with filePath
     public SavesData(String filePath) {
         this.filePath = filePath;
     }

@@ -14,20 +14,29 @@ public class FormulaOneCompare {
     private final String loadPath = "./data/drivers.json";
     private List<Driver> drivers;
 
+    // effects: constructs a FormulaOneCompare object with the given (empty) array list
     public FormulaOneCompare() {
         drivers = new ArrayList<>();
     }
 
+    // requires: non-null list of drivers
+    // modifies: this
+    // effects: constructs a FormulaOneCompare object with the given array list
     public FormulaOneCompare(List<Driver> drivers) {
         this.drivers = drivers;
     }
 
 
+    // effects: returns the list of drivers
     public List<Driver> getDrivers() {
         return drivers;
     }
 
     @SuppressWarnings("methodlength")
+    // requires: scan should be an object that is valid and of Scanner type
+    // modifies: drivers
+    //effects: loads driver data from JSON file, adds new driver data, compares drivers, displays winner,
+    // and saves driver data
     public void run(Scanner scan) {
         LoadsData loadsData = new LoadsData(loadPath);
         try {

@@ -16,7 +16,6 @@ import persistence.SavesData;
 public class FormulaOneCompareGUI extends JFrame implements ActionListener {
     private List<Driver> driverList;
     private JPanel driverPanel;
-    private JLabel driverLabel;
     private JButton addDriverButton;
     private JButton saveButton;
     private JButton loadButton;
@@ -25,10 +24,13 @@ public class FormulaOneCompareGUI extends JFrame implements ActionListener {
 
 
     @SuppressWarnings("methodlength")
+    // effects: allows the user to interact with a GUI interface of the comparison tool,
+    // displays a splash screen of logo
     public FormulaOneCompareGUI() {
         super("Formula One Driver Comparison");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(800,600);
+        getContentPane().setBackground(Color.BLACK);
 
         showSplashScreen();
 
@@ -44,7 +46,6 @@ public class FormulaOneCompareGUI extends JFrame implements ActionListener {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
 
-        driverLabel = new JLabel("Drivers:");
         addDriverButton = new JButton("Add Driver");
         saveButton = new JButton("Save Data");
         loadButton = new JButton("Load Data");
@@ -64,7 +65,6 @@ public class FormulaOneCompareGUI extends JFrame implements ActionListener {
         clearButton.setBackground(Color.RED);
 
 
-        buttonPanel.add(driverLabel);
         buttonPanel.add(addDriverButton);
         buttonPanel.add(saveButton);
         buttonPanel.add(loadButton);
@@ -80,17 +80,18 @@ public class FormulaOneCompareGUI extends JFrame implements ActionListener {
         splitPane.setResizeWeight(0.5);
 
         getContentPane().add(splitPane);
-        getContentPane().setBackground(Color.BLACK);
 
         setVisible(true);
 
     }
 
+    // effects: shows a splash screen of application logo, and then disposes it 2 seconds later
     private void showSplashScreen() {
         JFrame splashFrame = new JFrame();
         splashFrame.setUndecorated(true);
-        JLabel splashLabel = new JLabel(new ImageIcon("/resources/f1splash.png"));
-        splashFrame.add(splashLabel);
+        ImageIcon splashImage = new ImageIcon("resources/f1splash.png");
+        JLabel splashLabel = new JLabel(splashImage);
+        splashFrame.getContentPane().add(splashLabel);
         splashFrame.pack();
         splashFrame.setLocationRelativeTo(null);
         splashFrame.setVisible(true);
@@ -106,6 +107,8 @@ public class FormulaOneCompareGUI extends JFrame implements ActionListener {
 
 
 
+    // modifies: driverPanel
+    // effects: updates the driverPanel with labels of any new drivers that are added
     private void updateDriverPanel() {
         driverPanel.removeAll();
         for (Driver driver : driverList) {
@@ -118,6 +121,9 @@ public class FormulaOneCompareGUI extends JFrame implements ActionListener {
 
     @Override
     @SuppressWarnings("methodlength")
+    // modifies: driverList, driverPanel
+    // effects: adds a new driver to driverList (add button), updates driverPanel,
+    // exception with error message is shown if unsuccessful.
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addDriverButton) {
             String name = JOptionPane.showInputDialog(this, "Enter Driver Name: ");
@@ -171,6 +177,7 @@ public class FormulaOneCompareGUI extends JFrame implements ActionListener {
 
     }
 
+    // effects: allows to run the FormulaOneCompareGUI class
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new FormulaOneCompareGUI());
     }

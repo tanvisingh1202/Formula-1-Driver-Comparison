@@ -53,4 +53,14 @@ drivers, so I can continue comparing them without losing the data.
 - As a user, I want to be able to save a list of Formula One drivers of this current season, so I can compare their 
 stats with drivers in future seasons. 
 
+# Instructions for Grader
+
+- You can generate the first required action related to adding Xs to a Y by clicking the "Add Driver" button; 
+  this allows you to manually enter details of your favourite F1 driver!
+- You can generate the second required action related to adding Xs to a Y by clicking the "Compare Driver" button; this 
+  button displays the winning driver!
+- You can locate my visual component by starting my application; you will see a splash screen of the logo once the 
+  application is open!
+- You can save the state of my application by clicking the "Save Data" button
+- You can reload the state of my application by clicking the "Load Data" button
   

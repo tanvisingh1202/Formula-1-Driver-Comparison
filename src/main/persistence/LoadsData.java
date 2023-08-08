@@ -21,6 +21,8 @@ public class LoadsData {
         this.filePath = filePath;
     }
 
+    // requires: the JSON file should have the driver data
+    // effects: reads and parses the JSON file represented by filePath
     public List<Driver> loadsDriverData() throws IOException {
         String data = new String(Files.readAllBytes(Paths.get(filePath)));
         JSONArray array = new JSONArray(data);
