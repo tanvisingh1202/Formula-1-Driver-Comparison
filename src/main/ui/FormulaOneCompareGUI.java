@@ -21,6 +21,8 @@ public class FormulaOneCompareGUI extends JFrame implements ActionListener {
     private JButton saveButton;
     private JButton loadButton;
     private JButton compareButton;
+    private JButton clearButton;
+
 
     @SuppressWarnings("methodlength")
     public FormulaOneCompareGUI() {
@@ -37,38 +39,49 @@ public class FormulaOneCompareGUI extends JFrame implements ActionListener {
             e.printStackTrace();
         }
 
-        driverPanel = new JPanel();
-        driverPanel.setLayout(new BoxLayout(driverPanel, BoxLayout.Y_AXIS));
-        updateDriverPanel();
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
 
         driverLabel = new JLabel("Drivers:");
         addDriverButton = new JButton("Add Driver");
         saveButton = new JButton("Save Data");
         loadButton = new JButton("Load Data");
         compareButton = new JButton("Compare Drivers");
+        clearButton = new JButton("Clear Drivers");
 
         addDriverButton.addActionListener(this);
         saveButton.addActionListener(this);
         loadButton.addActionListener(this);
         compareButton.addActionListener(this);
+        clearButton.addActionListener(this);
 
-        Container contentPane = getContentPane();
-        contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
-        contentPane.add(driverLabel);
-        contentPane.add(driverPanel);
-        contentPane.add(addDriverButton);
-        contentPane.add(saveButton);
-        contentPane.add(loadButton);
-        contentPane.add(compareButton);
+        buttonPanel.add(driverLabel);
+        buttonPanel.add(addDriverButton);
+        buttonPanel.add(saveButton);
+        buttonPanel.add(loadButton);
+        buttonPanel.add(compareButton);
+        buttonPanel.add(clearButton);
+
+
+        driverPanel = new JPanel();
+        driverPanel.setLayout(new BoxLayout(driverPanel, BoxLayout.Y_AXIS));
+        updateDriverPanel();
+
+        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, buttonPanel, driverPanel);
+        splitPane.setResizeWeight(0.5);
+
+        getContentPane().add(splitPane);
 
         setVisible(true);
 
     }
 
+
+
     private void updateDriverPanel() {
         driverPanel.removeAll();
         for (Driver driver : driverList) {
-            JLabel labelDriverInfo = new JLabel(driver.getName() + "driving for" + driver.getTeam());
+            JLabel labelDriverInfo = new JLabel(driver.getName() + " driving for " + driver.getTeam());
             driverPanel.add(labelDriverInfo);
         }
         driverPanel.revalidate();
@@ -120,7 +133,12 @@ public class FormulaOneCompareGUI extends JFrame implements ActionListener {
             Driver winner = firsttolast.get(0);
 
             JOptionPane.showMessageDialog(this, "Winning driver:\n" + winner.getName()
-                    + "with a score of" + winner.getFinalscore() + "!");
+                    + " with a score of " + winner.getFinalscore() + "!");
+        } else if (e.getSource() == clearButton) {
+            driverList.clear();
+            updateDriverPanel();
+
+            JOptionPane.showMessageDialog(this, "Drivers cleared!");
         }
 
     }
