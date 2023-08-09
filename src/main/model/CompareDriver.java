@@ -19,13 +19,22 @@ public class CompareDriver {
 // effects: the drivers list (order)
 
     public List<Driver> compareDrivers(List<Driver> drivers) {
+        StringBuilder driverNames = new StringBuilder();
+
         for (Driver driver : drivers) {
             double score = calculateScore(driver);
             driver.setFinalscore(score);
 
+            driverNames.append(driver.getName()).append(", ");
+
         }
 
         drivers.sort(Comparator.comparingDouble(Driver::getFinalscore).reversed());
+
+        String allDriverNames = driverNames.toString();
+        allDriverNames = allDriverNames.substring(0, allDriverNames.length() - 2);
+
+        EventLog.getInstance().logEvent(new Event("Drivers compared: " + allDriverNames));
 
         return drivers;
     }

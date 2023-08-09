@@ -94,6 +94,7 @@ public class FormulaOneCompareGUI extends JFrame implements ActionListener {
         splashFrame.getContentPane().add(splashLabel);
         splashFrame.pack();
         splashFrame.setLocationRelativeTo(null);
+        splashFrame.revalidate();
         splashFrame.setVisible(true);
 
         try {

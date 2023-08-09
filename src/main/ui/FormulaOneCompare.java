@@ -2,6 +2,8 @@ package ui;
 
 import model.CompareDriver;
 import model.Driver;
+import model.EventLog;
+import model.Event;
 import persistence.LoadsData;
 import persistence.SavesData;
 
@@ -108,8 +110,21 @@ public class FormulaOneCompare {
             System.out.println("Error: " + e.getMessage());
         }
 
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> printLoggedEvents()));
+
         System.out.println("Thank you for playing!");
     }
 
+    private void printLoggedEvents() {
+        System.out.println("Logged Events:");
+        EventLog eventLog = EventLog.getInstance();
+        for (Event event : eventLog) {
+            System.out.println(event.getDate() + " - " + event.getDescription());
 
+        }
+    }
 }
+
+
+
+

@@ -23,6 +23,8 @@ public class Driver {
         this.polepositions = polepositions;
         this.fastestlaps = fastestlaps;
         this.finalscore = 0;
+
+        EventLog.getInstance().logEvent(new Event("Driver added: " + name));
     }
 
 // getters

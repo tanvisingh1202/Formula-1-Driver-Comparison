@@ -64,3 +64,17 @@ stats with drivers in future seasons.
 - You can save the state of my application by clicking the "Save Data" button
 - You can reload the state of my application by clicking the "Load Data" button
   
+
+## Phase 4: Task 2
+
+Logged Events:
+
+Wed Aug 09 16:36:39 PDT 2023 - Driver added: Lando Norris 
+
+Wed Aug 09 16:36:55 PDT 2023 - Driver added: Lewis Hamilton
+
+Wed Aug 09 16:37:12 PDT 2023 - Driver added: Yuki Tsunoda
+
+Wed Aug 09 16:37:40 PDT 2023 - Driver added: Max Verstappen
+
+Wed Aug 09 16:37:42 PDT 2023 - Drivers compared: Lando Norris, Lewis Hamilton, Yuki Tsunoda, Max Verstappen
