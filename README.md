@@ -78,3 +78,18 @@ Wed Aug 09 16:37:12 PDT 2023 - Driver added: Yuki Tsunoda
 Wed Aug 09 16:37:40 PDT 2023 - Driver added: Max Verstappen
 
 Wed Aug 09 16:37:42 PDT 2023 - Drivers compared: Lando Norris, Lewis Hamilton, Yuki Tsunoda, Max Verstappen
+
+
+## Phase 4: Task 3
+
+If I had more time to work on the project, I would refactor my project to closer adhere to the Single Responsibility 
+Principle. I can make this change in my CompareDriver class, which is currently responsible for both calculating the 
+holistic score of the drivers, and sorting the drivers by score to pick out the winner.
+
+To make this change, I would separate the responsibilities into two classes, namely CalculateDriverScore, 
+and FindWinner. The former class would be responsible for the calculateScore() method in the CompareDriver class, and 
+the latter would encapsulate the compareDrivers() method in my original class.
+
+My reasons for doing is are that this change would allow for a application that is easily modifiable/fixable, as it now
+introduces individual processes for comparing the drivers. Any changes necessary would be applied to the singular new
+class, improving readability and easing testability in the process.
